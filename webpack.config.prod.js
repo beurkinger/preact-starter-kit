@@ -1,6 +1,15 @@
 const webpack = require('webpack');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 
-plugins = [
+var outputPath = __dirname + '/public';
+var outputFilename = 'js/transformed-mini.js';
+
+var plugins = [
+  new HTMLWebpackPlugin({
+    template: __dirname + '/src/index.html',
+    filename: 'index.html',
+    inject: 'body'
+  }),
   new webpack.DefinePlugin({
     'process.env': {
       'NODE_ENV': JSON.stringify('production')
@@ -10,8 +19,6 @@ plugins = [
   new webpack.optimize.OccurrenceOrderPlugin(),
   new webpack.optimize.AggressiveMergingPlugin()
 ];
-var outputPath = __dirname + '/public';
-outputFilename = 'js/transformed-mini.js';
 
 module.exports = {
   entry: __dirname + '/src/index.js',

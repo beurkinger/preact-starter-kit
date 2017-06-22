@@ -1,10 +1,16 @@
 const webpack = require('webpack');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 
-const production = false;
-
-var plugins = [];
-var outputFilename = 'public/js/transformed.js';
 var outputPath = __dirname + '/';
+var outputFilename = 'public/js/transformed.js';
+
+var plugins = [
+  new HTMLWebpackPlugin({
+    template: __dirname + '/src/index.html',
+    filename: 'index.html',
+    inject: 'body'
+  })
+];
 
 module.exports = {
   entry: __dirname + '/src/index.js',
