@@ -1,7 +1,7 @@
 {
-  "name": "ai-project",
+  "name": "inferno-boilerplate",
   "version": "1.0.0",
-  "description": "Tinkering with a game AI.",
+  "description": "An InfernoJs boilerplate to speed up the start of my personal projects.",
   "main": "index.html",
   "scripts": {
     "build": "webpack",
@@ -10,21 +10,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/beurkinger/ai-project.git"
+    "url": "git+https://github.com/beurkinger/inferno-boilerplate.git"
   },
   "keywords": [
     "inferno",
     "inferno-js",
     "boilerplate",
+    "javascript",
     "html5",
-    "css3"
+    "css3",
+    "framework"
   ],
   "author": "Thibault Goehringer",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/beurkinger/ai-project/issues"
+    "url": "https://github.com/beurkinger/inferno-boilerplate/issues"
   },
-  "homepage": "https://github.com/beurkinger/ai-project#readme",
+  "homepage": "https://github.com/beurkinger/inferno-boilerplate#readme",
   "dependencies": {
     "inferno": "^1.5.6",
     "inferno-component": "^1.5.6"
