@@ -1,29 +1,47 @@
 const webpack = require('webpack');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HTMLPlugin = require('html-webpack-plugin');
 
-var outputPath = __dirname + '/';
-var outputFilename = 'public/js/transformed.js';
-
-var plugins = [
-  new HTMLWebpackPlugin({
-    template: __dirname + '/src/index.html',
-    filename: 'index.html',
-    inject: 'body'
-  })
+const prodPlugins = [
+  new webpack.DefinePlugin({
+    'process.env': {
+      'NODE_ENV': JSON.stringify('production')
+    }
+  }),
+  new webpack.optimize.UglifyJsPlugin(),
+  new webpack.optimize.OccurrenceOrderPlugin(),
+  new webpack.optimize.AggressiveMergingPlugin()
 ];
 
 module.exports = {
-  entry: __dirname + '/src/index.js',
+  entry: __dirname + '/src/js/index.js',
+  output: {
+    path: __dirname + '/build',
+    filename: 'js/transformed.js',
+  },
   module: {
-    loaders: [{
+    rules: [{
       test: /\.js$/,
       exclude: /node_modules/,
-      loader: 'babel-loader'
+      use: [{
+        loader: 'babel-loader',
+        options: {
+          presets: 'env',
+          plugins: 'inferno'
+        }
+      }]
+    }, {
+      test: /\.css$/,
+      exclude: /node_modules/,
+      use: ExtractTextPlugin.extract({ use: "css-loader" })
     }]
   },
-  output: {
-    filename: outputFilename,
-    path: outputPath
-  },
-  plugins: plugins
+  plugins: [
+    new HTMLPlugin({
+      template: __dirname + '/src/html/index.html',
+      filename: 'index.html',
+      inject: 'body'
+    }),
+    new ExtractTextPlugin('css/style.css'),
+  ].concat(process.env.NODE_ENV === 'production' ? prodPlugins : []) 
 };
