@@ -27,7 +27,7 @@ module.exports = {
         loader: 'babel-loader',
         options: {
           presets: 'env',
-          plugins: 'inferno'
+          plugins: ['inferno', 'transform-class-properties', 'transform-object-rest-spread']
         }
       }]
     }, {
