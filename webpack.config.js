@@ -2,10 +2,12 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HTMLPlugin = require('html-webpack-plugin');
 
+const PROD_ENV = JSON.stringify('production');
+
 const prodPlugins = [
   new webpack.DefinePlugin({
     'process.env': {
-      'NODE_ENV': JSON.stringify('production')
+      'NODE_ENV': PROD_ENV
     }
   }),
   new webpack.optimize.UglifyJsPlugin(),
@@ -43,5 +45,5 @@ module.exports = {
       inject: 'body'
     }),
     new ExtractTextPlugin('css/style.css'),
-  ].concat(process.env.NODE_ENV === 'production' ? prodPlugins : []) 
+  ].concat(process.env.NODE_ENV === PROD_ENV ? prodPlugins : []) 
 };
