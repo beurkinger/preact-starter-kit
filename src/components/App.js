@@ -1,5 +1,4 @@
-import Inferno from 'inferno';
-import Component from 'inferno-component';
+import { Component } from 'inferno';
 
 import './App.css';
 
@@ -18,4 +17,4 @@ class App extends Component {
 
 }
 
-module.exports = App;
+export default App;

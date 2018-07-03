@@ -1,49 +1,28 @@
-const webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const HTMLPlugin = require('html-webpack-plugin');
-
-const PROD_ENV = JSON.stringify('production');
-
-const prodPlugins = [
-  new webpack.DefinePlugin({
-    'process.env': {
-      'NODE_ENV': PROD_ENV
-    }
-  }),
-  new webpack.optimize.UglifyJsPlugin(),
-  new webpack.optimize.OccurrenceOrderPlugin(),
-  new webpack.optimize.AggressiveMergingPlugin()
-];
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: __dirname + '/src/js/index.js',
-  output: {
-    path: __dirname + '/build',
-    filename: 'js/transformed.js',
-  },
   module: {
     rules: [{
       test: /\.js$/,
       exclude: /node_modules/,
-      use: [{
-        loader: 'babel-loader',
+      use: {
+        loader: 'babel-loader',  
         options: {
           presets: 'env',
           plugins: ['inferno', 'transform-class-properties', 'transform-object-rest-spread']
-        }
-      }]
+        }   
+      }
     }, {
       test: /\.css$/,
-      exclude: /node_modules/,
-      use: ExtractTextPlugin.extract({ use: "css-loader" })
+      use: [{ loader: MiniCssExtractPlugin.loader }, 'css-loader']
     }]
   },
   plugins: [
-    new HTMLPlugin({
-      template: __dirname + '/src/html/index.html',
-      filename: 'index.html',
-      inject: 'body'
+    new HtmlWebpackPlugin({
+      template: __dirname + '/src/index.html',
+      title: 'Inferno Boilerplate'
     }),
-    new ExtractTextPlugin('css/style.css'),
-  ].concat(process.env.NODE_ENV === PROD_ENV ? prodPlugins : []) 
+    new MiniCssExtractPlugin()
+  ]
 };
