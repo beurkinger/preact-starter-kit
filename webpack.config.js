@@ -9,8 +9,16 @@ module.exports = {
       use: {
         loader: 'babel-loader',  
         options: {
-          presets: 'env',
-          plugins: ['inferno', 'transform-class-properties', 'transform-object-rest-spread']
+          presets: [
+            [
+              "@babel/preset-env",
+              {
+                "targets": "> 1%, not dead",
+                "useBuiltIns": "entry"
+              }
+            ]
+          ],
+          plugins: ['inferno', '@babel/proposal-class-properties', '@babel/plugin-proposal-object-rest-spread']
         }   
       }
     }, {
