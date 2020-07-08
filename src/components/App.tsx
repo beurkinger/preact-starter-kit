@@ -1,16 +1,16 @@
-import { Component } from 'inferno';
+import { h, Component } from 'preact';
 
 import './App.css';
 
 class App extends Component {
 
-  constructor(props) {
+  constructor(props: {}) {
     super(props);
 	}
 
 	render () {
 		return (
-      <div id="app" >
+      <div id="app">
       </div>
     );
 	}

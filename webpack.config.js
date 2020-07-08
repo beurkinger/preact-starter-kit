@@ -2,35 +2,47 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+  resolve: {
+    extensions: [".js", ".jsx", ".ts", ".tsx"]
+  },
   module: {
-    rules: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      use: {
-        loader: 'babel-loader',  
-        options: {
-          presets: [
-            [
-              "@babel/preset-env",
-              {
-                "targets": "> 1%, not dead",
-                "useBuiltIns": "entry"
-              }
-            ]
-          ],
-          plugins: ['inferno', '@babel/proposal-class-properties', '@babel/plugin-proposal-object-rest-spread']
-        }   
+    rules: [
+      {
+        test: /\.ts(x?)$/,
+        exclude: /node_modules/,
+        use: [{ loader: 'ts-loader' }]
+      },
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        loader: "source-map-loader"
+      },
+      {
+        test: /\.css$/,
+        use: [{ loader: MiniCssExtractPlugin.loader }, 'css-loader']
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg|png|jpg|svg)$/,
+        use: [{ 
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'assets/',
+          }
+         }]
       }
-    }, {
-      test: /\.css$/,
-      use: [{ loader: MiniCssExtractPlugin.loader }, 'css-loader']
-    }]
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: __dirname + '/src/index.html',
-      title: 'Inferno Boilerplate'
+      title: 'Preact Boilerplate'
     }),
     new MiniCssExtractPlugin()
-  ]
+  ],
+  devServer: {
+    contentBase: __dirname + '/public',
+    historyApiFallback: true,
+    publicPath: '/',
+  }
 };
