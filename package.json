@@ -1,7 +1,7 @@
 {
   "name": "preact-boilerplate",
   "version": "1.1.0",
-  "description": "A Preact boilerplate to speed up the start of my personal projects.",
+  "description": "Some boilerplate code to kickstart Preact-based projects.",
   "main": "index.html",
   "scripts": {
     "build": "webpack --mode production",
