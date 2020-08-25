@@ -6,15 +6,15 @@
   background-color: transparent;
 }
 
-html, body {
-  height: 100%;
-  width: 100%;
-}
-
 html {
+  font-size: 16px;
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-size: 1rem;
 }
 
 body, input, textarea, button, select {
