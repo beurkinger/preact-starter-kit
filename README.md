@@ -12,7 +12,7 @@ Includes :
   - **PostCSS** and **PostCSS-Preset-Env**
 
 ## How to use it (the easy way)
-Simply click the `use template` button on the GitHub interface.
+Simply click the `use template` button on the GitHub interface to create a new repository based on this one.
 
 ## How to use it (the hard way)
 1. Create a new repository for your project.
