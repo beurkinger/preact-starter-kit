@@ -12,18 +12,19 @@ Includes :
   - **PostCSS** and **PostCSS-Preset-Env**
 
 ## How to use it
-1. Open Terminal
-2. Create a bare clone of this repository.
+1. Create a new repository for your project.
+2. Open Terminal
+3. Create a bare clone of the `preact-starter-kit` repository.
 ```shell
 $ git clone --bare https://github.com/beurkinger/preact-starter-kit.git
 ```
-3. Mirror-push to the repository you want to use.
-```shell
-$ cd old-repository.git```
+4. Mirror-push to the new repository.
+```
+$ cd old-repository.git
 $ git push --mirror https://github.com/exampleuser/new-repository.git
 ```
-4. Remove the temporary local repository you created earlier.
-```shell
+5. Remove the temporary local repository you created earlier.
+```
 $ cd ..
 $ rm -rf old-repository.git
 ```
