@@ -11,7 +11,10 @@ Includes :
   - transpiling to ES5
   - **PostCSS** and **PostCSS-Preset-Env**
 
-## How to use it
+## How to use it (the easy way)
+Simply click the `use template` button on the GitHub interface.
+
+## How to use it (the hard way)
 1. Create a new repository for your project.
 2. Open Terminal
 3. Create a bare clone of the `preact-starter-kit` repository.
