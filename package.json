@@ -16,6 +16,11 @@
     "preact",
     "boilerplate",
     "javascript",
+    "typescript",
+    "webpack",
+    "eslint",
+    "prettier",
+    "post-css",
     "html5",
     "css3",
     "framework"
