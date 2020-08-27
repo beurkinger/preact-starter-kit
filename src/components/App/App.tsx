@@ -1,7 +1,7 @@
 import { h, FunctionComponent } from 'preact';
 
-import './App.css';
+import style from './App.css';
 
-const App: FunctionComponent = () => <div id="app"></div>;
+const App: FunctionComponent = () => <div className={style.app} />;
 
 export default App;
