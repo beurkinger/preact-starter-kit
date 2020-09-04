@@ -14,7 +14,6 @@ Includes :
 ## How to use it (the easy way)
 1. Simply click the `use template` button on the GitHub interface to create a new repository based on this one.
 2. See the "Automatically update the project configuration to your own values" section below.
-```
 
 ## How to use it (the hard way)
 1. Create a new repository for your project.
