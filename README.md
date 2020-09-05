@@ -1,19 +1,19 @@
 
 # preact-starter-kit
-Some boilerplate code to kickstart Preact-based projects.
+Some boilerplate code to kickstart Preact-based projects. 
 
-Includes :
+Features :
 - **Webpack** and **Preact**, configured and ready to go
-- Typing through **TypeScript**
-- Linting through **ESlint** and **Prettier**
-- Component styling through **CSS Modules** and **CSS Variables** 
-- Backward compatibility with older browsers for JS and CSS through : 
-  - transpiling to ES5
-  - **PostCSS** and **PostCSS-Preset-Env**
+- Strong typing thanks to **TypeScript**
+- JS linting through **ESlint** and **Prettier**
+- Support of **CSS Modules** and **CSS Variables** for component styling
+- JS and CSS backward compatibility with older browsers through transpiling to ES5 + use of **PostCSS** and **PostCSS-Preset-Env**
+- Lightning-fast deployment to Github Pages thanks to **gh-pages**
+- Automated customization of the config file values
 
 ## How to use it (the easy way)
 1. Simply click the `use template` button on the GitHub interface to create a new repository based on this one.
-2. See the "Automatically update the project configuration to your own values" section below.
+2. See the *Automatically update the project configuration to your own values* section below.
 
 ## How to use it (the hard way)
 1. Create a new repository for your project.
