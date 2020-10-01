@@ -26,7 +26,7 @@ const REGEX = {
     AUTHOR: /"author"[\s:]*?"(.*?)"/is,
     REPOSITORY: /"repository".*?"url"[\s:]*?"(.*?)"/is,
     BUGS: /"bugs".*?"url"[\s:]*?"(.*?)"/is,
-    HOMEPAGE: /"homepage".*?"url"[\s:]*?"(.*?)"/is,
+    HOMEPAGE: /"homepage"[\s:]*?"(.*?)"/is,
   },
   WEBPACK_CONFIG: {
     HTML_TITLE: /HTML_TITLE[\s=]*?'(.*?)'/is,
