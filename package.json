@@ -1,6 +1,6 @@
 {
   "name": "preact-starter-kit",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Some boilerplate code to kickstart Preact-based projects.",
   "main": "index.html",
   "scripts": {
@@ -25,8 +25,7 @@
     "prettier",
     "post-css",
     "html5",
-    "css3",
-    "framework"
+    "css3"
   ],
   "author": "Thibault Goehringer",
   "license": "GPL-3.0",
