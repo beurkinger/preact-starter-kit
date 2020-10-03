@@ -108,7 +108,7 @@ function getNewFileContent(fileContent, config) {
 function reviewAndApplyConfig(filePath, newFileContent, callback) {
   console.log('About to write to ' + filePath + ':\r\n');
   console.log(newFileContent + '\r\n');
-  askQuestion('Is this ok ?', 'y', (answer) => {
+  askQuestion('Is this ok ?', '', (answer) => {
     if (['y', 'yes'].includes(answer.trim().toLowerCase())) {
       console.log('Changes applied to ' + filePath + '\r\n');
       fs.writeFileSync(filePath, newFileContent, 'utf-8');
