@@ -66,8 +66,8 @@ module.exports = (_, argv) => {
         meta: {
           description: HTML_META_DESCRIPTION,
           title: HTML_META_TITLE,
-        },
-        // template: __dirname + '/src/index.html',
+        }
+        template: __dirname + '/src/index.html',
         title: HTML_TITLE,
       }),
       new MiniCssExtractPlugin(),

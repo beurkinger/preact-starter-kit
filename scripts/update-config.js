@@ -32,6 +32,8 @@ const REGEX = {
   },
   WEBPACK_CONFIG: {
     HTML_TITLE: /HTML_TITLE[\s=]*?'(.*?)'/is,
+    HTML_META_TITLE: /HTML_META_TITLE[\s=]*?'(.*?)'/is,
+    HTML_META_DESCRIPTION: /HTML_META_DESCRIPTION[\s=]*?'(.*?)'/is,
     PUBLIC_PATH: /PUBLIC_PATH.*?PROD[\s:]*?'(.*?)'/is,
   },
 };
@@ -196,6 +198,12 @@ function updatePackageJSON(callback) {
 function updateWebpackConfig(callback) {
   console.log("Let's update webpack.config.js\r\n");
 
+  const packageJsonContent = fs.readFileSync(FILE_PATH.PACKAGE_JSON, 'utf-8');
+  const description = matchRegex(
+    packageJsonContent,
+    REGEX.PACKAGE_JSON.DESCRIPTION
+  );
+
   const fileContent = fs.readFileSync(FILE_PATH.WEBPACK_CONFIG, 'utf-8');
 
   const config = [
@@ -203,6 +211,18 @@ function updateWebpackConfig(callback) {
       question: 'HTML Title ?',
       regex: REGEX.WEBPACK_CONFIG.HTML_TITLE,
       default: convertProjectDirNameToTitle(PROJECT_DIR_NAME),
+      answer: '',
+    },
+    {
+      question: 'HTML Meta Title ?',
+      regex: REGEX.WEBPACK_CONFIG.HTML_META_TITLE,
+      default: convertProjectDirNameToTitle(PROJECT_DIR_NAME),
+      answer: '',
+    },
+    {
+      question: 'HTML Meta Description ?',
+      regex: REGEX.WEBPACK_CONFIG.HTML_META_DESCRIPTION,
+      default: description,
       answer: '',
     },
     {
@@ -221,13 +241,14 @@ function updateWebpackConfig(callback) {
 
 function updateReadMe(callback) {
   console.log("Let's update README.md\r\n");
+
   const packageJsonContent = fs.readFileSync(FILE_PATH.PACKAGE_JSON, 'utf-8');
   const name = matchRegex(packageJsonContent, REGEX.PACKAGE_JSON.NAME);
   const description = matchRegex(
     packageJsonContent,
     REGEX.PACKAGE_JSON.DESCRIPTION
   );
-  // const fileContent = fs.readFileSync(FILE_PATH.README, 'utf-8');
+
   const newFileContent = `# ${name}\r\n${description}`;
 
   reviewAndApplyConfig(FILE_PATH.README, newFileContent, callback);
