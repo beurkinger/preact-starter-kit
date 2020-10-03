@@ -3,6 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const HTML_TITLE = 'Preact Starter Kit';
+const HTML_META_TITLE = 'Preact Starter Kit';
+const HTML_META_DESCRIPTION =
+  'Some boilerplate code to kickstart Preact-based projects.';
 const PUBLIC_PATH = {
   PROD: '/preact-starter-kit/',
   DEV: '/',
@@ -60,7 +63,11 @@ module.exports = (_, argv) => {
     plugins: [
       new Webpack.WatchIgnorePlugin([/css\.d\.ts$/]),
       new HtmlWebpackPlugin({
-        template: __dirname + '/src/index.html',
+        meta: {
+          description: HTML_META_DESCRIPTION,
+          title: HTML_META_TITLE,
+        },
+        // template: __dirname + '/src/index.html',
         title: HTML_TITLE,
       }),
       new MiniCssExtractPlugin(),
